@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+/* Global Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #9eb5de, #2a5298);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+}
+
+/* Floating Background Animation */
+body::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  top: 20%;
+  left: 10%;
+  filter: blur(90px);
+  animation: move1 6s infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  bottom: 15%;
+  right: 10%;
+  filter: blur(100px);
+  animation: move2 8s infinite alternate;
+}
+
+/* Floating Animation Keyframes */
+@keyframes move1 {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  100% {
+    transform: translateY(-30px) translateX(20px);
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  100% {
+    transform: translateY(30px) translateX(-20px);
+  }
+}
+
+/* Glassmorphic To-Do App Container */
+.container {
+  width: 90%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Header */
+h1 {
+  color: #fff;
+  font-size: 26px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Task Input */
+.task-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.task-input input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+.task-input input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.task-input input:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Add Task Button */
+.task-input button {
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.task-input button:hover {
+  background: #ff1e45;
+}
+
+/* Task List */
+.task-list {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 12px;
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.task-list li:hover {
+  transform: scale(1.02);
+}
+
+/* Task Priority */
+.task-priority {
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+.priority-high {
+  background: #dc3545;
+}
+
+.priority-medium {
+  background: #ffc107;
+  color: #333;
+}
+
+.priority-low {
+  background: #28a745;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  color: #b30000;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+  }
+
+  .task-input {
+    flex-direction: column;
+  }
+
+  .task-input input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
